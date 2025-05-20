@@ -19,15 +19,13 @@ export const metadata: Metadata = {
   description: "Test task for quiz builder",
 };
 
-export default function RootLayout(
-  { children }: Readonly<{ children: ReactNode }>
-) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${openSans.variable}`}>
-        <ReduxProvider>
-          {children}
-        </ReduxProvider>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

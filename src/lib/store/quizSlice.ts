@@ -12,7 +12,10 @@ const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    setAnswer(state, action: PayloadAction<{ question: string; answer: string }>) {
+    setAnswer(
+      state,
+      action: PayloadAction<{ question: string; answer: string }>,
+    ) {
       state.answers[action.payload.question] = action.payload.answer;
     },
   },
