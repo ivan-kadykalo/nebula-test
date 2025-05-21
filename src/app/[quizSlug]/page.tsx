@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { ScreenType } from "@/types/quiz";
-import { SingleChoiceScreen } from "@/app/components/single-choice/single-choice";
+import { SingleChoiceScreen } from "@/components/single-choice/single-choice";
 import { quizRepository } from "@/repositories";
+import { QuizHeader } from "@/components/quiz-header/quiz-header";
+import { CONTAINER_PADDING_Y } from "@/styles/commonStyles";
 
 export const revalidate = 3600; // 1 hour
 export const dynamicParams = true;
@@ -36,7 +38,7 @@ export default async function QuizScreenPage({
   const ScreenComponent = () => {
     switch (screen.type) {
       case ScreenType.SingleChoice:
-        return <SingleChoiceScreen />;
+        return <SingleChoiceScreen {...screen} />;
 
       case ScreenType.Info:
         return <div>Info Component</div>;
@@ -48,12 +50,14 @@ export default async function QuizScreenPage({
   // TODO: Return some error if there are no such screen type (screen type invalid) and redirect next
 
   return (
-    <div>
-      <h1>{screen.title}</h1>
+    <>
+      <header className="py-2">
+        <QuizHeader />
+      </header>
 
-      <ScreenComponent />
-
-      <button>Next</button>
-    </div>
+      <section className={CONTAINER_PADDING_Y}>
+        <ScreenComponent />
+      </section>
+    </>
   );
 }

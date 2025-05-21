@@ -3,6 +3,7 @@ import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 import { ReactNode } from "react";
+import cn from "classnames";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -24,7 +25,14 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} ${openSans.variable}`}>
+      <body
+        className={cn(
+          "bg-primary-gradient",
+          montserrat.variable,
+          openSans.variable,
+          "min-h-screen",
+        )}
+      >
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>

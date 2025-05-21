@@ -4,30 +4,31 @@ export enum ScreenType {
 }
 
 export interface QuestionOption {
+  slug: string;
   label: string;
   next?: string;
 }
 
-export interface BaseScreen {
+export interface ScreenBase {
   slug: string;
   type: ScreenType;
   title: string;
   next?: string;
 }
 
-export interface SingleChoiceScreen extends BaseScreen {
+export interface ScreenSingleChoice extends ScreenBase {
   type: ScreenType.SingleChoice;
   options: QuestionOption[];
   note?: string;
 }
 
-export interface InfoScreen extends BaseScreen {
+export interface ScreenInfo extends ScreenBase {
   type: ScreenType.Info;
   description: string;
   button: string;
 }
 
-export type Screen = SingleChoiceScreen | InfoScreen;
+export type Screen = ScreenSingleChoice | ScreenInfo;
 
 export interface Quiz {
   slug: string;

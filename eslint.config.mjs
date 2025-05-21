@@ -22,6 +22,17 @@ const eslintConfig = [
     ],
     rules: {
       "no-console": "error",
+      "react/jsx-curly-brace-presence": [
+        "error",
+        { props: "never", children: "never" },
+      ],
+      "react/self-closing-comp": [
+        "error",
+        {
+          component: true,
+          html: true,
+        },
+      ],
     },
   }),
 ];

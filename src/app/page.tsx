@@ -1,7 +1,9 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
 import { quizRepository } from "@/repositories";
+import { NebulaFullIcon } from "@/ui/icons/nebula-full";
+import { Content } from "@/components/wrappers/content";
+import { CONTAINER_PADDING_Y, ELEMENTS_Y_SPACE } from "@/styles/commonStyles";
+import cn from "classnames";
 
 export const revalidate = 3600; // 1 hour
 
@@ -9,18 +11,17 @@ export default async function Home() {
   const quizzesSlugs = await quizRepository.getAllQuizzesSlugs();
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
+    <main>
+      <Content
+        className={cn(
+          CONTAINER_PADDING_Y,
+          ELEMENTS_Y_SPACE,
+          "flex flex-col items-center justify-center",
+        )}
+      >
+        <NebulaFullIcon />
 
-        <h1 className={styles.title}>Welcome to Nebula Quizzes!</h1>
+        <h1>Welcome to Nebula Quizzes!</h1>
 
         <p>Select any quiz to get started:</p>
 
@@ -39,7 +40,7 @@ export default async function Home() {
           quizzes. In real life, users probably will go right to the correct
           quiz slug&#34;
         </p>
-      </main>
-    </div>
+      </Content>
+    </main>
   );
 }
