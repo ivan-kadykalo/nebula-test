@@ -1,9 +1,9 @@
 export enum ScreenType {
-  SingleChoice = "single-choice",
+  SingleChoiceQuestion = "single-choice-question",
   Info = "info",
 }
 
-export interface QuestionOption {
+export interface Answer {
   slug: string;
   label: string;
   next?: string;
@@ -17,8 +17,8 @@ export interface ScreenBase {
 }
 
 export interface ScreenSingleChoice extends ScreenBase {
-  type: ScreenType.SingleChoice;
-  options: QuestionOption[];
+  type: ScreenType.SingleChoiceQuestion;
+  answers: Answer[];
   note?: string;
 }
 

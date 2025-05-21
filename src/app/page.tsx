@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { quizRepository } from "@/repositories";
 import { NebulaFullIcon } from "@/ui/icons/nebula-full";
-import { Content } from "@/components/wrappers/content";
+import { Content } from "@/ui/wrappers/content";
 import { CONTAINER_PADDING_Y, ELEMENTS_Y_SPACE } from "@/styles/commonStyles";
 import cn from "classnames";
 

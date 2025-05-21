@@ -4,9 +4,9 @@
   "screens": [
     {
       "slug": "select-gender",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Select your gender:",
-      "options": [
+      "answers": [
         { "label": "Female", "slug": "female" },
         { "label": "Male", "slug": "male" }
       ],
@@ -14,9 +14,9 @@
     },
     {
       "slug": "relationship-status",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "So we can get to know you better, tell us about your relationship status:",
-      "options": [
+      "answers": [
         { "label": "Single", "slug": "single" },
         { "label": "In a relationship", "slug": "in-relationship", "next": "are-you-parent" }
       ],
@@ -24,9 +24,9 @@
     },
     {
       "slug": "single-parent",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Are you a single parent?",
-      "options": [
+      "answers": [
         { "label": "Yes", "slug": "yes" },
         { "label": "No", "slug": "no" }
       ],
@@ -34,9 +34,9 @@
     },
     {
       "slug": "single-feelings",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Which statement best describes you?",
-      "options": [
+      "answers": [
         { "label": "I'm very unhappy with how things are going in my relationship", "slug": "very-unhappy" },
         { "label": "I'm unhappy with parts of my relationship, but some things are working well", "slug": "unhappy-parts" },
         { "label": "I'm generally happy in my relationship", "slug": "generally-happy" }
@@ -45,9 +45,9 @@
     },
     {
       "slug": "overthinking",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Do you tend to overthink?",
-      "options": [
+      "answers": [
         { "label": "Yes", "slug": "yes" },
         { "label": "No", "slug": "no", "next": "how-it-works-no-overthink" }
       ],
@@ -71,9 +71,9 @@
     },
     {
       "slug": "importance",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "What is most important to you?",
-      "options": [
+      "answers": [
         { "label": "Success", "slug": "success" },
         { "label": "Romance", "slug": "romance" },
         { "label": "Stability", "slug": "stability" },
@@ -83,9 +83,9 @@
     },
     {
       "slug": "emotional-control",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Is emotional control tricky for you?",
-      "options": [
+      "answers": [
         { "label": "Yes", "slug": "yes" },
         { "label": "Sometimes", "slug": "sometimes" },
         { "label": "Rarely", "slug": "rarely" },
@@ -95,9 +95,9 @@
     },
     {
       "slug": "are-you-parent",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Are you a parent?",
-      "options": [
+      "answers": [
         { "label": "Yes", "slug": "yes" },
         { "label": "No", "slug": "no" }
       ],
@@ -105,9 +105,9 @@
     },
     {
       "slug": "parent-feelings",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "How did you feel in your last relationship?",
-      "options": [
+      "answers": [
         { "label": "I was unhappy with how things were going", "slug": "unhappy" },
         { "label": "I was unhappy with parts, but some things were working", "slug": "unhappy-parts" },
         { "label": "I was generally happy with my relationship", "slug": "generally-happy" },
@@ -117,9 +117,9 @@
     },
     {
       "slug": "partner-introvert",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Is your partner an introvert or extrovert?",
-      "options": [
+      "answers": [
         { "label": "Introvert", "slug": "introvert" },
         { "label": "Extrovert", "slug": "extrovert" },
         { "label": "A bit of both", "slug": "both" }
@@ -128,9 +128,9 @@
     },
     {
       "slug": "partner-gender",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "What is your partner's gender?",
-      "options": [
+      "answers": [
         { "label": "Male", "slug": "male" },
         { "label": "Female", "slug": "female" }
       ],
@@ -138,10 +138,10 @@
     },
     {
       "slug": "sex-priority",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Do you agree with the statement below?",
       "note": "\"My partner and I make sex a priority in our relationship\"",
-      "options": [
+      "answers": [
         { "label": "Strongly agree", "slug": "strongly-agree" },
         { "label": "Agree", "slug": "agree" },
         { "label": "Neutral", "slug": "neutral" },
@@ -152,9 +152,9 @@
     },
     {
       "slug": "relationship-goals",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "When you think about your relationship goals, you feel...?",
-      "options": [
+      "answers": [
         { "label": "Optimistic! They are totally doable, with some guidance.", "slug": "optimistic" },
         { "label": "Cautious. I've struggled before, but I'm hopeful.", "slug": "cautious" },
         { "label": "I'm feeling a little anxious, honestly.", "slug": "anxious" }
@@ -163,9 +163,9 @@
     },
     {
       "slug": "referral-source",
-      "type": "single-choice",
+      "type": "single-choice-question",
       "title": "Where did you hear about us?",
-      "options": [
+      "answers": [
         { "label": "Poster or Billboard", "slug": "poster-billboard" },
         { "label": "Friend or Family", "slug": "friend-family" },
         { "label": "Instagram", "slug": "instagram" },

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { ScreenType } from "@/types/quiz";
-import { SingleChoiceScreen } from "@/components/single-choice/single-choice";
+import { ScreenSingleChoiceQuestion } from "@/ui/components/screen-single-choice-question";
 import { quizRepository } from "@/repositories";
-import { QuizHeader } from "@/components/quiz-header/quiz-header";
+import { QuizHeader } from "@/ui/components/quiz-header";
 import { CONTAINER_PADDING_Y } from "@/styles/commonStyles";
 
 export const revalidate = 3600; // 1 hour
@@ -37,8 +37,8 @@ export default async function QuizScreenPage({
 
   const ScreenComponent = () => {
     switch (screen.type) {
-      case ScreenType.SingleChoice:
-        return <SingleChoiceScreen {...screen} />;
+      case ScreenType.SingleChoiceQuestion:
+        return <ScreenSingleChoiceQuestion {...screen} />;
 
       case ScreenType.Info:
         return <div>Info Component</div>;
