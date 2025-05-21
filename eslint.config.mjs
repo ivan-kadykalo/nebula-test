@@ -20,6 +20,9 @@ const eslintConfig = [
       "plugin:prettier/recommended",
       "next/core-web-vitals",
     ],
+    rules: {
+      "no-console": "error",
+    },
   }),
 ];
 
