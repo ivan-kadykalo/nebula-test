@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { Quiz } from "@/types/quiz";
+import type { IQuiz } from "@/types/quiz";
 import { QuizRepository } from "@/repositories/QuizRepository";
 
 const quizzesDir = path.join(process.cwd(), "src/data/quizzes");
@@ -20,10 +20,10 @@ export function getAllQuizzes() {
 }
 
 export class FileQuizRepository implements QuizRepository {
-  private quizzes: Quiz[];
+  private quizzes: IQuiz[];
 
   constructor() {
-    this.quizzes = getAllQuizzes() as Quiz[];
+    this.quizzes = getAllQuizzes() as IQuiz[];
   }
 
   async getAllQuizzesSlugs() {

@@ -1,7 +1,7 @@
 {
   "slug": "personality-check",
   "start": "select-gender",
-  "screens": [
+  "slides": [
     {
       "slug": "select-gender",
       "type": "single-choice-question",
@@ -10,7 +10,7 @@
         { "label": "Female", "slug": "female" },
         { "label": "Male", "slug": "male" }
       ],
-      "next": "relationship-status"
+      "nextSlideSlug": "relationship-status"
     },
     {
       "slug": "relationship-status",
@@ -18,9 +18,9 @@
       "title": "So we can get to know you better, tell us about your relationship status:",
       "answers": [
         { "label": "Single", "slug": "single" },
-        { "label": "In a relationship", "slug": "in-relationship", "next": "are-you-parent" }
+        { "label": "In a relationship", "slug": "in-relationship", "nextSlideSlug": "are-you-parent" }
       ],
-      "next": "single-parent"
+      "nextSlideSlug": "single-parent"
     },
     {
       "slug": "single-parent",
@@ -30,7 +30,7 @@
         { "label": "Yes", "slug": "yes" },
         { "label": "No", "slug": "no" }
       ],
-      "next": "single-feelings"
+      "nextSlideSlug": "single-feelings"
     },
     {
       "slug": "single-feelings",
@@ -41,7 +41,7 @@
         { "label": "I'm unhappy with parts of my relationship, but some things are working well", "slug": "unhappy-parts" },
         { "label": "I'm generally happy in my relationship", "slug": "generally-happy" }
       ],
-      "next": "overthinking"
+      "nextSlideSlug": "overthinking"
     },
     {
       "slug": "overthinking",
@@ -49,9 +49,9 @@
       "title": "Do you tend to overthink?",
       "answers": [
         { "label": "Yes", "slug": "yes" },
-        { "label": "No", "slug": "no", "next": "how-it-works-no-overthink" }
+        { "label": "No", "slug": "no", "nextSlideSlug": "how-it-works-no-overthink" }
       ],
-      "next": "how-it-works-overthink"
+      "nextSlideSlug": "how-it-works-overthink"
     },
     {
       "slug": "how-it-works-overthink",
@@ -59,7 +59,7 @@
       "title": "So how does it work?",
       "description": "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We're going to change your relationship with astrology.",
       "button": "Next",
-      "next": "emotional-control"
+      "nextSlideSlug": "emotional-control"
     },
     {
       "slug": "how-it-works-no-overthink",
@@ -67,7 +67,7 @@
       "title": "So how does it work?",
       "description": "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We're going to change your relationship with astrology.",
       "button": "Next",
-      "next": "emotional-control"
+      "nextSlideSlug": "emotional-control"
     },
     {
       "slug": "importance",
@@ -79,7 +79,7 @@
         { "label": "Stability", "slug": "stability" },
         { "label": "Freedom", "slug": "freedom" }
       ],
-      "next": "referral-source"
+      "nextSlideSlug": "referral-source"
     },
     {
       "slug": "emotional-control",
@@ -91,7 +91,7 @@
         { "label": "Rarely", "slug": "rarely" },
         { "label": "Not at all", "slug": "not-at-all" }
       ],
-      "next": "referral-source"
+      "nextSlideSlug": "referral-source"
     },
     {
       "slug": "are-you-parent",
@@ -101,7 +101,7 @@
         { "label": "Yes", "slug": "yes" },
         { "label": "No", "slug": "no" }
       ],
-      "next": "parent-feelings"
+      "nextSlideSlug": "parent-feelings"
     },
     {
       "slug": "parent-feelings",
@@ -113,7 +113,7 @@
         { "label": "I was generally happy with my relationship", "slug": "generally-happy" },
         { "label": "I've never been in a relationship", "slug": "never" }
       ],
-      "next": "partner-introvert"
+      "nextSlideSlug": "partner-introvert"
     },
     {
       "slug": "partner-introvert",
@@ -124,7 +124,7 @@
         { "label": "Extrovert", "slug": "extrovert" },
         { "label": "A bit of both", "slug": "both" }
       ],
-      "next": "partner-gender"
+      "nextSlideSlug": "partner-gender"
     },
     {
       "slug": "partner-gender",
@@ -134,7 +134,7 @@
         { "label": "Male", "slug": "male" },
         { "label": "Female", "slug": "female" }
       ],
-      "next": "sex-priority"
+      "nextSlideSlug": "sex-priority"
     },
     {
       "slug": "sex-priority",
@@ -148,7 +148,7 @@
         { "label": "Disagree", "slug": "disagree" },
         { "label": "Strongly disagree", "slug": "strongly-disagree" }
       ],
-      "next": "relationship-goals"
+      "nextSlideSlug": "relationship-goals"
     },
     {
       "slug": "relationship-goals",
@@ -159,7 +159,7 @@
         { "label": "Cautious. I've struggled before, but I'm hopeful.", "slug": "cautious" },
         { "label": "I'm feeling a little anxious, honestly.", "slug": "anxious" }
       ],
-      "next": "referral-source"
+      "nextSlideSlug": "referral-source"
     },
     {
       "slug": "referral-source",
@@ -182,7 +182,8 @@
         { "label": "Youtube", "slug": "youtube" },
         { "label": "Pinterest", "slug": "pinterest" },
         { "label": "Other", "slug": "other" }
-      ]
+      ],
+      "nextSlideSlug": null
     }
   ]
 }

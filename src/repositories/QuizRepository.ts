@@ -1,6 +1,6 @@
-import { Quiz } from "@/types/quiz";
+import type { IQuiz } from "@/types/quiz";
 
 export interface QuizRepository {
   getAllQuizzesSlugs(): Promise<string[]>;
-  getQuizBySlug(slug: string): Promise<Quiz | null>;
+  getQuizBySlug(slug: string): Promise<IQuiz | null>;
 }

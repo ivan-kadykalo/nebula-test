@@ -6,3 +6,4 @@ export const STICKY_MENU_MARGIN_Y = "my-14";
 export const ICON_SIZE_REGULAR = "h-5 w-5";
 export const ICON_SIZE_SMALL = "h-4 w-4";
 export const MENU_BUTTON_SIZE = "w-12 h-12";
+export const TRANSITION_DELAY = 250;

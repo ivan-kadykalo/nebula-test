@@ -1,37 +1,37 @@
-export enum ScreenType {
+export enum SlideType {
   SingleChoiceQuestion = "single-choice-question",
   Info = "info",
 }
 
-export interface Answer {
+export interface IAnswer {
   slug: string;
   label: string;
-  next?: string;
+  nextSlideSlug?: string;
 }
 
-export interface ScreenBase {
+export interface ISlideBase {
   slug: string;
-  type: ScreenType;
+  type: SlideType;
   title: string;
-  next?: string;
+  nextSlideSlug: string | null;
 }
 
-export interface ScreenSingleChoice extends ScreenBase {
-  type: ScreenType.SingleChoiceQuestion;
-  answers: Answer[];
+export interface ISlideSingleChoice extends ISlideBase {
+  type: SlideType.SingleChoiceQuestion;
+  answers: IAnswer[];
   note?: string;
 }
 
-export interface ScreenInfo extends ScreenBase {
-  type: ScreenType.Info;
+export interface ISlideInfo extends ISlideBase {
+  type: SlideType.Info;
   description: string;
   button: string;
 }
 
-export type Screen = ScreenSingleChoice | ScreenInfo;
+export type ISlide = ISlideSingleChoice | ISlideInfo;
 
-export interface Quiz {
+export interface IQuiz {
   slug: string;
   start: string;
-  screens: Screen[];
+  slides: ISlide[];
 }

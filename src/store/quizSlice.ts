@@ -2,10 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type State = {
   answers: Record<string, string>;
+  currentSlideSlug: string | null;
+  history: string[];
 };
 
 const initialState: State = {
   answers: {},
+  currentSlideSlug: null,
+  history: [],
 };
 
 const quizSlice = createSlice({
@@ -14,12 +18,29 @@ const quizSlice = createSlice({
   reducers: {
     setAnswer(
       state,
-      action: PayloadAction<{ question: string; answer: string }>,
+      action: PayloadAction<{
+        questionSlug: string;
+        answerSlug: string;
+      }>,
     ) {
-      state.answers[action.payload.question] = action.payload.answer;
+      state.answers[action.payload.questionSlug] = action.payload.answerSlug;
+    },
+    goNext: (state, action: PayloadAction<string>) => {
+      state.currentSlideSlug = action.payload;
+    },
+    addScreenToHistory: (state, action: PayloadAction<string>) => {
+      state.history.push(action.payload);
+    },
+    goBack: (state) => {
+      const prev = state.history.pop();
+
+      if (prev) {
+        state.currentSlideSlug = prev;
+      }
     },
   },
 });
 
-export const { setAnswer } = quizSlice.actions;
+export const { setAnswer, goNext, addScreenToHistory, goBack } =
+  quizSlice.actions;
 export const quizReducer = quizSlice.reducer;
