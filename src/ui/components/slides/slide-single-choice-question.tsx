@@ -4,12 +4,19 @@ import type { ISlideSingleChoice } from "@/types/quiz";
 import { Button } from "@/ui/components/button";
 import { selectDraftAnswers } from "@/store/quizSelectors";
 import { useSelector } from "react-redux";
-import type { AnswerOptions } from "@/ui/components/screen-content";
+import type { HandleAnswerOptions } from "@/ui/components/screen-content";
+import {
+  TEXT_HEADING,
+  TEXT_SECONDARY,
+  Y_SPACE_L,
+  Y_SPACE_S,
+} from "@/styles/commonStyles";
+import cn from "classnames";
 
 interface Props {
   quizSlug: string;
   slideInfo: ISlideSingleChoice;
-  onClick: (options: AnswerOptions) => void;
+  onClick: (options: HandleAnswerOptions) => void;
 }
 
 export const SlideSingleChoiceQuestion = (props: Props) => {
@@ -20,16 +27,16 @@ export const SlideSingleChoiceQuestion = (props: Props) => {
   const currentAnswerSlug = userAnswers[questionSlug];
 
   return (
-    <div className="space-y-8 w-full">
-      <h1 className="text-2xl font-bold text-center">{title}</h1>
+    <div className={cn(Y_SPACE_L, "w-full")}>
+      <h1 className={cn(TEXT_HEADING, "text-center")}>{title}</h1>
 
       {note && (
-        <p className="text-md text-gray-500 text-center">
+        <p className={cn(TEXT_SECONDARY, "text-center")}>
           This is a placeholder for the Single Choice screen.
         </p>
       )}
 
-      <div className="space-y-3 w-full">
+      <div className={cn(Y_SPACE_S, "w-full")}>
         {answers.map((answer) => {
           const handleButtonClick = () => {
             onClick({

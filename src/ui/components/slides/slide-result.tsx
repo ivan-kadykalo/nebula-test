@@ -7,6 +7,19 @@ import { Button } from "@/ui/components/button";
 import { resetQuiz } from "@/store/quizSlice";
 import { selectAnswers } from "@/store/quizSelectors";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
+import {
+  DECIMAL_LIST,
+  TEXT_BOLD,
+  TEXT_HEADING,
+  TEXT_SECONDARY,
+  TEXT_SUBHEADING,
+  Y_SPACE_L,
+  Y_SPACE_M,
+  Y_SPACE_S,
+  Y_SPACE_XS,
+} from "@/styles/commonStyles";
+import cn from "classnames";
+import Link from "next/link";
 
 interface Props {
   quiz: IQuiz;
@@ -29,23 +42,29 @@ export const SlideResult = (props: Props) => {
   };
 
   return (
-    <div className="space-y-8 w-full">
-      <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-bold">Thanks for your time</h1>
+    <div className={cn(Y_SPACE_L, "w-full")}>
+      <div className={cn(Y_SPACE_S, "text-center")}>
+        <h1 className={TEXT_HEADING}>Thanks for your time</h1>
 
-        <p className="text-md text-gray-100">Here are your answers:</p>
+        <p className={TEXT_SUBHEADING}>Here are your answers:</p>
       </div>
 
-      <ol className="list-decimal list-outside space-y-4">
+      <ol className={cn(Y_SPACE_M, DECIMAL_LIST)}>
         {parsedData.map((item, index) => (
-          <li key={index} className="list-item space-y-1 text-gray-100">
-            <h3 className="text-md font-bold">{item.question}</h3>
-            <p className="text-md text-muted-foreground">{item.answer}</p>
+          <li key={index} className={cn(Y_SPACE_XS, "list-item")}>
+            <p className={TEXT_BOLD}>{item.question}</p>
+            <p className={TEXT_SECONDARY}>{item.answer}</p>
           </li>
         ))}
       </ol>
 
-      <Button label="Reset" onClick={handleReset} />
+      <div className="grid grid-cols-2 gap-4 ">
+        <Button label="Try again" onClick={handleReset} />
+
+        <Link href="/" prefetch>
+          <Button label="Go home" />
+        </Link>
+      </div>
     </div>
   );
 };

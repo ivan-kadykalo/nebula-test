@@ -2,19 +2,24 @@
 
 import React from "react";
 import { ChevronLeftIcon } from "lucide-react";
-import { Content } from "@/ui/wrappers/content";
 import { NebulaSmallIcon } from "@/ui/icons/nebula-small";
 import cn from "classnames";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { selectHistory, selectIsCompleted } from "@/store/quizSelectors";
 import { goBack } from "@/store/quizSlice";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { HeaderWrapper } from "@/ui/wrappers/header-wrapper";
+import {
+  FLEX_CENTER,
+  HEADER_BUTTON_SIZE,
+  HEADER_BUTTON_STYLES,
+} from "@/styles/commonStyles";
 
 interface Props {
   quizSlug: string;
 }
 
-export function Header(props: Props) {
+export function QuizHeader(props: Props) {
   const { quizSlug } = props;
   const dispatch = useAppDispatch();
 
@@ -27,28 +32,23 @@ export function Header(props: Props) {
   };
 
   return (
-    <header className="py-2">
-      <Content className="flex items-center justify-around w-full gap-4 md:px-4">
-        {shouldShowBackButton ? (
-          <button
-            className={cn(
-              "h-12 w-12 shrink-0 flex items-center justify-center",
-              "rounded-lg hover:bg-gray-100/10 transition cursor-pointer",
-            )}
-            onClick={handleGoBack}
-          >
-            <ChevronLeftIcon />
-          </button>
-        ) : (
-          <div className="h-12 w-12 shrink-0" />
-        )}
+    <HeaderWrapper className="justify-around gap-4">
+      {shouldShowBackButton ? (
+        <button
+          className={cn(HEADER_BUTTON_SIZE, FLEX_CENTER, HEADER_BUTTON_STYLES)}
+          onClick={handleGoBack}
+        >
+          <ChevronLeftIcon />
+        </button>
+      ) : (
+        <div className={HEADER_BUTTON_SIZE} />
+      )}
 
-        <div className="w-full flex items-center justify-center">
-          <NebulaSmallIcon />
-        </div>
+      <div className={cn(FLEX_CENTER, "w-full")}>
+        <NebulaSmallIcon />
+      </div>
 
-        <div className="h-12 w-12 shrink-0" />
-      </Content>
-    </header>
+      <div className={HEADER_BUTTON_SIZE} />
+    </HeaderWrapper>
   );
 }

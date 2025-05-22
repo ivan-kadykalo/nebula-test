@@ -1,10 +1,12 @@
 import type { ISlideInfo } from "@/types/quiz";
 import { Button } from "@/ui/components/button";
-import type { NextScreenOptions } from "@/ui/components/screen-content";
+import type { HandleNextScreenOptions } from "@/ui/components/screen-content";
+import cn from "classnames";
+import { TEXT_HEADING, TEXT_SECONDARY, Y_SPACE_L } from "@/styles/commonStyles";
 
 interface Props {
   slideInfo: ISlideInfo;
-  onClick: (options: NextScreenOptions) => void;
+  onClick: (options: HandleNextScreenOptions) => void;
 }
 
 export const SlideInfo = (props: Props) => {
@@ -19,10 +21,10 @@ export const SlideInfo = (props: Props) => {
   };
 
   return (
-    <div className="space-y-8 w-full">
-      <h1 className="text-2xl font-bold text-center">{title}</h1>
+    <div className={cn(Y_SPACE_L, "text-center w-full")}>
+      <h1 className={TEXT_HEADING}>{title}</h1>
 
-      <p className="text-md text-gray-300 text-center">{description}</p>
+      <p className={TEXT_SECONDARY}>{description}</p>
 
       <Button key={button} label={button} onClick={handleButtonClick} />
     </div>

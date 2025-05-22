@@ -4,22 +4,17 @@ import cn from "classnames";
 
 interface Props {
   label: string;
-  onClick: () => void;
-  className?: string;
+  onClick?: () => void;
   isActive?: boolean;
 }
-// TODO: add hover effects for gradient
-// TODO: do something with important style!
 export const Button = (props: Props) => {
-  const { label, onClick, className, isActive } = props;
+  const { label, onClick, isActive } = props;
 
   return (
     <button
       className={cn(
-        "w-full p-4 bg-gray-200 rounded-2xl text-gray-900 shadow-xs transition duration-200 cursor-pointer",
-        "hover:bg-purple-600/50 hover:text-gray-100! active:bg-purple-700/50 active:text-gray-100! pressed:bg-purple-700/50 pressed:text-gray-100!",
-        { "bg-purple-700/50 text-gray-100!": isActive },
-        className,
+        "button w-full p-4 rounded-2xl transition duration-300 ease-in-out cursor-pointer shadow-lg hover:inset-shadow-sm",
+        { "button-active inset-shadow-sm": isActive },
       )}
       onClick={onClick}
     >

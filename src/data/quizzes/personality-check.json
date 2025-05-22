@@ -1,4 +1,5 @@
 {
+  "name": "Define your personality (main quiz)",
   "slug": "personality-check",
   "start": "select-gender",
   "slides": [

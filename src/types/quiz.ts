@@ -31,6 +31,7 @@ export interface ISlideInfo extends ISlideBase {
 export type ISlide = ISlideSingleChoice | ISlideInfo;
 
 export interface IQuiz {
+  name: string;
   slug: string;
   start: string;
   slides: ISlide[];

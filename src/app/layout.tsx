@@ -23,8 +23,8 @@ export default function RootLayout({
       <body
         className={cn(
           "bg-primary-gradient",
-          montserrat.variable,
           "min-h-screen",
+          montserrat.variable,
         )}
       >
         <ReduxProvider>{children}</ReduxProvider>

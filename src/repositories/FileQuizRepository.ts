@@ -26,8 +26,11 @@ export class FileQuizRepository implements QuizRepository {
     this.quizzes = getAllQuizzes() as IQuiz[];
   }
 
-  async getAllQuizzesSlugs() {
-    return this.quizzes.map((quiz) => quiz.slug);
+  async getQuizzesList() {
+    return this.quizzes.map((quiz) => ({
+      name: quiz.name,
+      slug: quiz.slug,
+    }));
   }
 
   async getQuizBySlug(slug: string) {

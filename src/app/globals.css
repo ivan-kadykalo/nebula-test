@@ -3,21 +3,21 @@
 
 :root {
   /* Color variables */
-  --color-primary-100: #e8e8fc;
+  --color-primary-100: #ededf6;
   --color-primary-200: #d2d1f9;
   --color-primary-300: #bbbaf6;
   --color-primary-400: #a5a3f3;
-  --color-primary: #8e8cf0;
+  --color-primary-500: #8e8cf0;
   --color-primary-600: #7270c0;
   --color-primary-700: #555490;
   --color-primary-800: #393860;
   --color-primary-900: #1c1c30;
 
-  --color-secondary-100: #b1b1ce;
+  --color-secondary-100: #d1d1d6;
   --color-secondary-200: #8a8ab5;
   --color-secondary-300: #63639d;
   --color-secondary-400: #505090;
-  --color-secondary: #3c3c84;
+  --color-secondary-500: #3c3c84;
   --color-secondary-600: #282861;
   --color-secondary-700: #24244f;
   --color-secondary-800: #141333;
@@ -35,12 +35,43 @@ body {
 /* Base styles */
 @layer base {
   body {
-    background-color: var(--color-secondary-900);
+    /*background-color: var(--color-secondary-900);*/
     color: var(--color-primary-100);
   }
 }
 
 @layer utilities {
+  .c-primary {
+    color: var(--color-primary-100);
+  }
+  .c-secondary {
+    color: var(--color-secondary-100);
+  }
+
+  .link {
+    color: var(--color-primary-100);
+
+    &:hover, &:active, &:focus {
+      color: var(--color-primary-400);
+    }
+  }
+
+  .button {
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-900);
+
+
+    &:hover, &:active, &:focus {
+      background-color: var(--color-primary-300);
+      color: var(--color-primary-900);
+    }
+  }
+
+  .button-active {
+    background-color: var(--color-secondary-400);
+    color: var(--color-primary-100);
+  }
+
   .bg-primary-gradient {
     background: linear-gradient(
       0deg,
@@ -48,6 +79,7 @@ body {
       var(--color-primary-900)
     );
   }
+
   .fade-in {
     animation: fade-in 300ms ease-in-out forwards;
   }

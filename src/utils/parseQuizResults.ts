@@ -1,30 +1,52 @@
 import { IQuiz, SlideType } from "@/types/quiz";
 import { IUserAnswer } from "@/store/quizSlice";
+import { logError } from "@/utils/logger";
 
 interface Options {
   quiz: IQuiz;
   response: IUserAnswer[];
 }
 
-export const parseQuizResults = (options: Options) => {
-  const { quiz, response } = options;
+export interface ParsedQuizResult {
+  question: string;
+  answer: string;
+}
 
-  // TODO: Refactor data parsing
+export const parseQuizResults = (options: Options): ParsedQuizResult[] => {
+  const { quiz, response } = options;
 
   return response.map((item) => {
     const { questionSlug, answerSlug } = item;
-
     const currentSlide = quiz.slides.find(
       (slide) => slide.slug === questionSlug,
-    )!;
+    );
 
-    const questionTitle = currentSlide.title;
+    if (!currentSlide) {
+      logError(`Slide not found for slug: ${questionSlug}`);
 
-    const answerLabel =
-      currentSlide.type === SlideType.SingleChoiceQuestion
-        ? currentSlide.answers.find((answer) => answer.slug === answerSlug)!
-            .label
-        : answerSlug;
+      return {
+        question: questionSlug,
+        answer: answerSlug,
+      };
+    }
+
+    const questionTitle = currentSlide.title || questionSlug;
+    let answerLabel: string;
+
+    if (currentSlide.type === SlideType.SingleChoiceQuestion) {
+      const answerObj = currentSlide.answers?.find(
+        (answer) => answer.slug === answerSlug,
+      );
+
+      if (!answerObj) {
+        logError(`Answer not found for slug: ${answerSlug}`);
+        answerLabel = answerSlug;
+      } else {
+        answerLabel = answerObj.label;
+      }
+    } else {
+      answerLabel = answerSlug;
+    }
 
     return {
       question: questionTitle,

@@ -1,11 +1,15 @@
 import { ISlide } from "@/types/quiz";
+import { logError } from "@/utils/logger";
 
-export const getCurrentSlide = (screens: ISlide[], slug: string): ISlide => {
-  const slide = screens.find((s) => s.slug === slug);
+export const getCurrentSlide = (
+  slides: ISlide[],
+  slug: string,
+): ISlide | undefined => {
+  const currentSlide = slides.find((slide) => slide.slug === slug);
 
-  if (!slide) {
-    throw new Error(`Slide with slug "${slug}" not found`);
+  if (!currentSlide) {
+    logError(`Slide with slug "${slug}" not found`);
   }
 
-  return slide;
+  return currentSlide;
 };

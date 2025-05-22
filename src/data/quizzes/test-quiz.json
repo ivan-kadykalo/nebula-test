@@ -1,0 +1,25 @@
+{
+  "name": "Another quiz (with 2 questions)",
+  "slug": "test-quiz",
+  "start": "select-gender",
+  "slides": [
+    {
+      "slug": "select-gender",
+      "type": "single-choice-question",
+      "title": "Select your gender:",
+      "answers": [
+        { "label": "Female", "slug": "female" },
+        { "label": "Male", "slug": "male" }
+      ],
+      "nextSlideSlug": "how-it-works"
+    },
+    {
+      "slug": "how-it-works",
+      "type": "info",
+      "title": "So how does it work?",
+      "description": "Looks like it works fine as well",
+      "button": "Next",
+      "nextSlideSlug": null
+    }
+  ]
+}
