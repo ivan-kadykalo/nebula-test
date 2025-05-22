@@ -33,6 +33,7 @@ export const parseQuizResults = (options: Options): ParsedQuizResult[] => {
     const questionTitle = currentSlide.title || questionSlug;
     let answerLabel: string;
 
+    /** Developer supposed to add parsing logic for each new slide type (whenever it appears) **/
     if (currentSlide.type === SlideType.SingleChoiceQuestion) {
       const answerObj = currentSlide.answers?.find(
         (answer) => answer.slug === answerSlug,
