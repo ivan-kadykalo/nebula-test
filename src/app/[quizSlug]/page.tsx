@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { quizRepository } from "@/repositories";
-import { QuizScreen } from "@/ui/components/quiz-screen";
+import { Header } from "@/ui/components/header";
+import { ScreenContent } from "@/ui/components/screen-content";
 
 export const revalidate = 3600; // 1 hour
 export const dynamicParams = true;
@@ -25,5 +26,11 @@ export default async function QuizScreenPage({
   if (!quiz) return notFound();
   // TODO: Handle the case where the screen is not found, sent logs
 
-  return <QuizScreen quiz={quiz} />;
+  return (
+    <>
+      <Header quizSlug={quizSlug} />
+
+      <ScreenContent quiz={quiz} />
+    </>
+  );
 }

@@ -1,11 +1,6 @@
 import { SlideType } from "@/types/quiz";
 
-export const PAGES = {
-  RESULTS: "/results",
-};
-
-// TODO: rename screen to something different
-export const SUPPORTED_SCREEN_TYPES = [
+export const SUPPORTED_SLIDE_TYPES = [
   SlideType.SingleChoiceQuestion,
   SlideType.Info,
 ];

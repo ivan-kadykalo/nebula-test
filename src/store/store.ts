@@ -17,7 +17,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  // TODO: deal with middleware and appDispatch. What is it and why it is needed?
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

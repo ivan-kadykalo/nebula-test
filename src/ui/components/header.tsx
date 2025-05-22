@@ -1,17 +1,30 @@
+"use client";
+
 import React from "react";
 import { ChevronLeftIcon } from "lucide-react";
 import { Content } from "@/ui/wrappers/content";
 import { NebulaSmallIcon } from "@/ui/icons/nebula-small";
 import cn from "classnames";
+import { useAppSelector } from "@/hooks/useAppSelector";
+import { selectHistory, selectIsCompleted } from "@/store/quizSelectors";
+import { goBack } from "@/store/quizSlice";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 interface Props {
-  isTransitioning: boolean;
-  shouldShowBackButton: boolean;
-  handleGoBack: () => void;
+  quizSlug: string;
 }
 
 export function Header(props: Props) {
-  const { isTransitioning, shouldShowBackButton, handleGoBack } = props;
+  const { quizSlug } = props;
+  const dispatch = useAppDispatch();
+
+  const isCompleted = useAppSelector(selectIsCompleted(quizSlug));
+  const history = useAppSelector(selectHistory(quizSlug));
+  const shouldShowBackButton = history.length > 0 && !isCompleted;
+
+  const handleGoBack = () => {
+    dispatch(goBack({ quizSlug }));
+  };
 
   return (
     <header className="py-2">
@@ -23,7 +36,6 @@ export function Header(props: Props) {
               "rounded-lg hover:bg-gray-100/10 transition cursor-pointer",
             )}
             onClick={handleGoBack}
-            disabled={isTransitioning}
           >
             <ChevronLeftIcon />
           </button>
