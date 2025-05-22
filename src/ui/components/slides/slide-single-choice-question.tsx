@@ -12,6 +12,7 @@ import {
   Y_SPACE_S,
 } from "@/styles/commonStyles";
 import cn from "classnames";
+import { parseDynamicTemplate } from "@/utils/templateParser";
 
 interface Props {
   quizSlug: string;
@@ -28,11 +29,13 @@ export const SlideSingleChoiceQuestion = (props: Props) => {
 
   return (
     <div className={cn(Y_SPACE_L, "w-full")}>
-      <h1 className={cn(TEXT_HEADING, "text-center")}>{title}</h1>
+      <h1 className={cn(TEXT_HEADING, "text-center")}>
+        {parseDynamicTemplate(title, userAnswers)}
+      </h1>
 
       {note && (
         <p className={cn(TEXT_SECONDARY, "text-center")}>
-          This is a placeholder for the Single Choice screen.
+          {parseDynamicTemplate(note, userAnswers)}
         </p>
       )}
 

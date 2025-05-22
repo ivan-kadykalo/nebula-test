@@ -33,14 +33,11 @@ export default async function Home() {
 
           <ol className={cn(Y_SPACE_M, DISC_LIST)}>
             {quizzes.map(({ slug, name }) => (
-              <li
-                key={slug}
-                className={cn(TEXT_BOLD, "list-item transition link")}
-              >
-                <Link href={`/${slug}`} prefetch>
+              <Link key={slug} href={`/${slug}`} prefetch>
+                <li className={cn(TEXT_BOLD, "list-item transition link")}>
                   {name}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ol>
 

@@ -5,7 +5,7 @@ import { IQuiz } from "@/types/quiz";
 import { parseQuizResults } from "@/utils/parseQuizResults";
 import { Button } from "@/ui/components/button";
 import { resetQuiz } from "@/store/quizSlice";
-import { selectAnswers } from "@/store/quizSelectors";
+import { selectAnswers, selectDraftAnswers } from "@/store/quizSelectors";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import {
   DECIMAL_LIST,
@@ -20,6 +20,7 @@ import {
 } from "@/styles/commonStyles";
 import cn from "classnames";
 import Link from "next/link";
+import { parseDynamicTemplate } from "@/utils/templateParser";
 
 interface Props {
   quiz: IQuiz;
@@ -29,8 +30,10 @@ export const SlideResult = (props: Props) => {
   const { quiz } = props;
   const { slug: quizSlug } = quiz;
 
-  const response = useSelector(selectAnswers(quizSlug));
   const dispatch = useAppDispatch();
+
+  const response = useSelector(selectAnswers(quizSlug));
+  const userAnswers = useSelector(selectDraftAnswers(quizSlug));
 
   const parsedData = parseQuizResults({
     quiz,
@@ -52,7 +55,9 @@ export const SlideResult = (props: Props) => {
       <ol className={cn(Y_SPACE_M, DECIMAL_LIST)}>
         {parsedData.map((item, index) => (
           <li key={index} className={cn(Y_SPACE_XS, "list-item")}>
-            <p className={TEXT_BOLD}>{item.question}</p>
+            <p className={TEXT_BOLD}>
+              {parseDynamicTemplate(item.question, userAnswers)}
+            </p>
             <p className={TEXT_SECONDARY}>{item.answer}</p>
           </li>
         ))}
