@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
+- Install dependencies
+    ```bash
+    npm install # or yarn or pnpm or bun
+    ````
+- Run the development server:
+    ```bash
+    npm run dev # or yarn or pnpm or bun
+    ```
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About project
+A dynamic quiz engine which delivers fast, interactive personality quizzes with flexible content control.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Deployed on Vercel**
+- [Live demo](https://quiz-engine.vercel.app/) -
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tech Stack:
+- **Framework:** Next.js (with SSG & ISR)
+- **UI:** React + Tailwind CSS
+- **State Management:** Redux Toolkit (with local persistence)
+- **Language:** TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Key Features & Implementation
+- **Fast Data Fetching:** Pages are rendered using Static Site Generation (SSG) and Incremental Static Regeneration (ISR) for optimal performance.
+- **State-Driven Quiz Logic:** Each quiz uses a dedicated Redux store. Progress is synced to localStorage via redux-persist, so users can reload or return later and continue from the exact point they left off — the full state is preserved across sessions.
+- **Single-Route Navigation:** The quiz experience is fully managed on a single page, with state-driven rendering. It supports back/forward navigation and restores previously selected answers.
+- **Dynamic Text Parsing:** A built-in template parser enables dynamic content generation (e.g., titles, descriptions) based on user answers.
+- **Flexible Slide System:** Currently supports next types of slides:
+  - single-choice-question
+  - info
+  (The system is designed to be easily extendable with additional slide types.)
+- **Fully Configurable via JSON:** Quizzes are defined entirely through structured JSON files, allowing:
+  - branching logic (different flows based on answers),
+  - dynamic values in content,
+  - customizable structure.
+  
+  → See /src/data/quizzes/README.md for full configuration documentation.

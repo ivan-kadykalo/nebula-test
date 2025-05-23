@@ -1,22 +1,22 @@
 # Quiz Configuration Guide
 This file defines a quiz flow setup. 
 The file name is important — it determines the static route.
-For example, `personality-check.json` will be available at `/quiz/personality-check`.
+For example, `personality-check.json` will be available at `/personality-check`.
 ---
 
 ## FILE STRUCTURE
 ```
 {
-  "name": "Quiz Title",                 // Visible quiz title
-  "slug": "quiz-slug",                  // Unique route-friendly ID
-  "start": "first-slide-slug",          // Slug of the first slide
-  "slides": [ /* array of slides */ ]   // Ordered array of slides
+  "name": "Quiz Title",         // Visible quiz title
+  "slug": "quiz-slug",          // Unique route-friendly ID
+  "start": "first-slide-slug",  // Slug of the first slide
+  "slides": [ {} ]              // Ordered array of slides
 }
 ```
 ---
 
 ## SLIDE TYPES
-Each object inside slides[] must have a type and slug.
+Each object inside `slides[]` must have a type and slug.
 
 - ### `single-choice-question`
   Displays a question with multiple choices.
@@ -62,7 +62,7 @@ You can personalize title, description, note, etc.. using a mini parser with dyn
 ```
 {{questionSlug === answerSlug1: 'text1', answerSlug2: 'text2', ...}}
 ```
-Example:
+**Example:**
 
 `Single {{select-gender === female: 'woman', male: 'man'}} who {{single-parent === yes: 'has children, and'}} needs a different approach.`
 
@@ -79,7 +79,7 @@ Example:
 ---
 ## CREATE NEW QUIZ
 1.	Copy an existing `.json` and rename it (e.g. `my-quiz.json`)
-2.	File name determines route: `my-quiz.json` → `/quiz/my-quiz`
+2.	File name determines route: `my-quiz.json` → `/my-quiz`
 3.	Update metadata (name, slug, start)
 4.	Add slides with unique slugs (answers must also have unique slugs within their level)
 5.	Use nextSlideSlug for flow control (null for last slide)
