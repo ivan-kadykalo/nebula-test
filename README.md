@@ -27,10 +27,14 @@ A dynamic quiz engine which delivers fast, interactive personality quizzes with 
   
   → See /src/data/quizzes/README.md for full configuration documentation.
 
-## For local development
-- Clone the repository
+## Running the project
+### Development
 - Install dependencies
-    `npm install` or use: yarn, pnpm, bun
+    `npm install`
 - Run the development server:
-    `npm run dev` or use: yarn, pnpm, bun
+    `npm run dev`
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Production
+- Build and run the project in production mode:
+    `npm run build && npm start`
