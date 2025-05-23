@@ -1,4 +1,6 @@
-# About project
+# Nebula quiz builder
+
+## About project
 A dynamic quiz engine which delivers fast, interactive personality quizzes with flexible content control.
 
 **[Live demo (deployed on Vercel)](https://nebula-test-quiz.vercel.app/)**
@@ -25,13 +27,10 @@ A dynamic quiz engine which delivers fast, interactive personality quizzes with 
   
   → See /src/data/quizzes/README.md for full configuration documentation.
 
-## For local developemnt
+## For local development
+- Clone the repository
 - Install dependencies
-    ```bash
-    npm install # or yarn or pnpm or bun
-    ````
+    `npm install` or use: yarn, pnpm, bun
 - Run the development server:
-    ```bash
-    npm run dev # or yarn or pnpm or bun
-    ```
+    `npm run dev` or use: yarn, pnpm, bun
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
