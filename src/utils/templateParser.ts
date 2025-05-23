@@ -1,16 +1,9 @@
 import { logError } from "@/utils/logger";
 
-/** Keys are questions slugs, values (answers slugs) **/
 interface Answers {
-  [key: string]: string;
+  [key: string]: string; // key: questionSlug, value: answerSlug
 }
 
-/**
- * Splits the content of a template block into individual clauses,
- * respecting quoted strings in the result part of a clause.
- * @param content The string content within {{...}}.
- * @returns An array of clause strings.
- */
 function splitContentIntoClauses(content: string): string[] {
   const clauses: string[] = [];
   let currentClause = "";
@@ -43,10 +36,8 @@ function splitContentIntoClauses(content: string): string[] {
  * Parses a template string with dynamic conditional blocks.
  *
  * Syntax Example: {{select-gender === female: 'woman', male: 'man'}}
- *
- * - The variable name (question slug) is defined in the first condition (e.g., "select-gender").
- * - Subsequent conditions (answer slug) in the same block refer to that same variable and
- * MUST use the short form (e.g., "male: 'man'").
+ * - The variable name (questionSlug) is defined in the first condition (e.g., "select-gender").
+ * - Subsequent conditions (answerSlug) in the same block refer to that same variable, split by commas.
  *
  * @param inputString The template string to parse.
  * @param answers An object containing key-value pairs for response data.
@@ -63,7 +54,7 @@ export function parseDynamicTemplate(
 
   const blockRegex = /\{\{([^}]+?)\}\}/g;
 
-  return inputString.replace(blockRegex, (match, content: string) => {
+  return inputString.replace(blockRegex, (_, content: string) => {
     const clauses = splitContentIntoClauses(content);
 
     if (clauses.length === 0) {
