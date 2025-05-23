@@ -14,7 +14,7 @@
 A dynamic quiz engine which delivers fast, interactive personality quizzes with flexible content control.
 
 **Deployed on Vercel**
-- [Live demo](https://nebula-test-quiz.vercel.app/)
+[Live demo](https://nebula-test-quiz.vercel.app/)
 
 ---
 
