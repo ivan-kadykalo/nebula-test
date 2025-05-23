@@ -42,9 +42,9 @@ export default async function Home() {
           </ol>
 
           <p className={TEXT_QUOTE}>
-            &#34;It&#39;s an intro page, that displays a list of available
-            quizzes. In real life, users probably will go right to the correct
-            quiz slug&#34;
+            “It’s an intro page that displays a list of available quizzes. In
+            real life, users will probably go directly to the correct quiz
+            slug.”
           </p>
         </SectionWrapper>
       </main>
