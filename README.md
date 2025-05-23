@@ -1,30 +1,13 @@
-## Getting Started
-- Install dependencies
-    ```bash
-    npm install # or yarn or pnpm or bun
-    ````
-- Run the development server:
-    ```bash
-    npm run dev # or yarn or pnpm or bun
-    ```
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
-## About project
+# About project
 A dynamic quiz engine which delivers fast, interactive personality quizzes with flexible content control.
 
-**Deployed on Vercel**
-[Live demo](https://nebula-test-quiz.vercel.app/)
-
----
+**[Live demo (deployed on Vercel)](https://nebula-test-quiz.vercel.app/)**
 
 ## Tech Stack:
 - **Framework:** Next.js (with SSG & ISR)
 - **UI:** React + Tailwind CSS
 - **State Management:** Redux Toolkit (with local persistence)
 - **Language:** TypeScript
-
----
 
 ## Key Features & Implementation
 - **Fast Data Fetching:** Pages are rendered using Static Site Generation (SSG) and Incremental Static Regeneration (ISR) for optimal performance.
@@ -41,3 +24,14 @@ A dynamic quiz engine which delivers fast, interactive personality quizzes with 
   - customizable structure.
   
   → See /src/data/quizzes/README.md for full configuration documentation.
+
+## For local developemnt
+- Install dependencies
+    ```bash
+    npm install # or yarn or pnpm or bun
+    ````
+- Run the development server:
+    ```bash
+    npm run dev # or yarn or pnpm or bun
+    ```
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
